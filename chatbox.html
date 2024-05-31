@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Support Tool</title>
+  <link rel="stylesheet" type="text/css" href="chatbox.css">
+  <link rel="stylesheet" type="text/css" href="head&body.css">
+</head>
+<body>
+
+  <div class="header">
+		<div class="left">
+			<img class="logo" src="logo.png">
+		</div>
+		<div class="right">
+			<div class="home">
+				<a href="webHome.html">Home</a>
+			</div>
+			<div class="ourvision">
+				<a href="about.html">Our Vision</a>
+			</div>
+			<div class="howto">
+				<a href="about.html#direct">How To</a>
+			</div>
+			<div class="getStarted">
+				<a href="chatbox.html">Get Started</a>
+			</div>
+		</div>	
+	</div>
+
+  <!--
+    this is added chatbox version
+  -->
+  <div class="chatbody">
+    <div class="guide">
+      <h2>How To Use</h2>
+      <ul>
+        <li><b>Type Your Question:</b><br> you're on the platform, you'll see a search box. Simply type in the question you want to know about the university clinic services.</li>
+        <br>
+        <li><b>No Need to Change Language:</b><br>There's no need to change the language option manually. The system is designed to detect and respond to the language you type automatically.</li>
+        <br>
+        <li><b>Submit Your Query:</b><br>After typing your question, hit the "Send"button to send your query.</li>
+        <br>
+        <li><b>Receive Response:</b><br>Our chat system will process your question and respond in the same language you typed. You'll receive a prompt and accurate response tailored to your inquiry.</li>
+        <br>
+      </ul>
+    </div>
+
+    <div class="chatpage">
+      <div class="chat-container" id="chatContainer">
+      </div>
+      <div class="search">
+        <input type="text" class="todel" id="userInput" placeholder="Type your message...">
+        <button class="sendMessage">Send</button>
+      </div>
+    </div>
+
+    <div class="contact">
+      <h2>Contact Us</h2>
+      <div class="phone">
+        <img src="ph.svg" height="30px" width="30px">
+        <a href="0654655776">+66 (0)6 546-557-76</a>
+      </div>
+      <div class="email">
+        <img src="em.svg" height="30px" width="30px">
+        <a href="healthplus@gmail.com">healthplus@gmail.com</a>
+      </div>
+      <div class="phone">
+        <img src="line.svg" height="30px" width="30px">
+        <a href="healthplus">healthplus12</a>
+      </div>
+    </div>
+  </div>
+  
+  
+<script type="importmap">
+  {
+    "imports": {
+      "@google/generative-ai": "https://esm.run/@google/generative-ai@0.2.1"
+    }
+  }
+</script>
+
+<script type="module">
+  import { GoogleGenerativeAI } from "@google/generative-ai";
+
+  const API_KEY = "AIzaSyBMF37ZUz8Wm-4SxMLM0UcJJSimRmssglQ"; 
+
+  const genAI = new GoogleGenerativeAI(API_KEY);
+  document.querySelector('.sendMessage').addEventListener('click',()=>{
+    run();
+  });
+  const userInput = document.getElementById('userInput');
+  userInput.addEventListener('keydown', (event) => {
+      // Check if the pressed key is 'Enter'
+      if (event.key === 'Enter') {
+          // Trigger the 'click' event on the 'Send' button
+          run();
+      };
+  });
+  async function run() {
+    const userInput = document.getElementById("userInput").value;
+    displayMessage(userInput, 'user');
+    
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const chat = model.startChat({
+      history: [
+        {role: "user",
+        parts: "Hello there!"},
+        {role: "model",
+        parts: "Hello there!" },
+        {role: "user",
+        parts: "hi"},
+        {role: "model",
+        parts: "Hello there!" },
+        { role: "user",
+        parts: "hey"},
+        { role: "model",
+        parts: "hi, how can I assist you today?" },
+        { role: "user",
+        parts: "what is the name of the clinic?"},
+        { role: "model",
+        parts: "The name of the clinic is RSU clinic." },
+        {role: "user",
+        parts: "does the clinic provide insurance for international students?"},
+        {role: "model",
+        parts: "Yes, there is insurance available for students. Here is the phone number for more queries regarding medical coverage coverage 0-266-012-13" },
+        {role: "user",
+        parts: "Do you have information on clinic insurance policies for international students?"},
+        {role: "model",
+        parts: "Here is the link to insurance policy for international students. https://www.rsuip.org/wp-content/uploads/2020/02/%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%84%E0%B8%B8%E0%B9%89%E0%B8%A1%E0%B8%84%E0%B8%A3%E0%B8%AD%E0%B8%87Muang-Thai-Insurance-English-version.pdf" },
+        {role: "user",
+        parts: "is there any insurance policy for international students?"},
+        {role: "model",
+        parts: "Yes, there is insurance policy for international students." },
+        {role: "user",
+        parts: "what are the clinic insurance policies?"},
+        {role: "model",
+        parts: "Here is the link to insurance policy. https://www.rsuip.org/wp-content/uploads/2020/02/%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%84%E0%B8%B8%E0%B9%89%E0%B8%A1%E0%B8%84%E0%B8%A3%E0%B8%AD%E0%B8%87Muang-Thai-Insurance-English-version.pdf" },
+        {role: "user",
+        parts: "what is the period of clininc insurance?"},
+        {role: "model",
+        parts: "The period of insurance for international students is 1 year." },
+        {role: "user",
+        parts: "is there any insurance for international student?"},
+        {role: "model",
+        parts: "Yes. There is insurance for international students." },
+        {role: "user",
+        parts: "what do I do to get insurance for international students?"},
+        {role: "model",
+        parts: "there is provided insurance information for international students. All foreign students are required to obtain health and travel medical coverage to cover themselves throughout the period of your travel and study in Thailand. If the students do not have existing health medical coverage that meets the requirements, the student may consult with the International Service Center for asssistance in purchasing coverage with the medical coverage providers in Thailand. Please have a general medical and dental checkup before coming to Thailand. If you have any chronic health problems or conditions, for example, asthma, diabetes, heart disease, eczema, gastrointestinal and muscle and joint problems, please carry a letter from your doctor explaining your condition and the treatment.Upon your arrival, please record your health medical coverage information online for central database to assist you in any emergency case. " },
+        {role: "user",
+        parts: "Tell me more about clinic insurance for international students"},
+        {role: "model",
+        parts: "there is provided insurance information for international students. All foreign students are required to obtain health and travel medical coverage to cover themselves throughout the period of your travel and study in Thailand. If the students do not have existing health medical coverage that meets the requirements, the student may consult with the International Service Center for asssistance in purchasing coverage with the medical coverage providers in Thailand. Please have a general medical and dental checkup before coming to Thailand. If you have any chronic health problems or conditions, for example, asthma, diabetes, heart disease, eczema, gastrointestinal and muscle and joint problems, please carry a letter from your doctor explaining your condition and the treatment.Upon your arrival, please record your health medical coverage information online for central database to assist you in any emergency case. " },
+        { role: "user",
+        parts: "what is the address of the clinic?"},
+        { role: "model",
+        parts: "Here is the address of the hospital, No. 52/347, Building 12/1 (Rangsit Prayoonsak 2), 2nd floor, Room 216, Mueang Ake Village, Ek Prachim Road, Lak Hok Subdistrict Mueang Pathum Thani District Pathum Thani Province 12000." },
+        { role: "user",
+        parts: "what time is Dr.A arriving?"},
+        { role: "model",
+        parts: "Sorry. I do not have access to this information. For more information, please contact Tel.02-791-6000 ext.4499,4496 or @rsu.clinic"},
+        {role: "user",
+        parts: "Hi, I would like to ask something."},
+        {role: "model",
+        parts: "welcome to Health Plus, what can I do for you?" },
+        {role: "user",
+        parts: "do you know how to make a graden?"},
+        {role: "model",
+        parts: "Sorry, I can provide answer related only to our Health Plus, clinic and some other medical related quesions." },
+        {role: "user",
+        parts: "where is the clinic location?"},
+        {role: "model",
+        parts: "The clinic location is No. 52/347, Building 12/1 (Rangsit Prayoonsak 2), 2nd floor, Room 216, Mueang Ake Village, Ek Prachim Road, Lak Hok Subdistrict Mueang Pathum Thani District Pathum Thani Province 12000." },
+        {role: "user",
+        parts: "What is opening hour?"},
+        {role: "model",
+        parts: "The open hours of our hospital is Monday – Friday 7:00 AM – 5:00 PM. Saturday – Sunday and public holidays 7:00 AM – 4:00 PM."},
+        {role: "user",
+        parts: "what is the clinic phone number?"},
+        {role: "model",
+        parts: "The clinic phone number is Tel.02-791-6000 ext.4499,4496" },
+        {role: "user",
+        parts: "I want to make appointment."},
+        {role: "model",
+        parts: "Please contact following to make appointment Tel.02-791-6000 ext.4499,4496 or @rsu.clinic" },
+        {role: "user",
+        parts: "Can I make appointment here?"},
+        {role: "model",
+        parts: "I am sorry to inform you that we cannot assist you in making appointment. Please contact following to make appointment Tel.02-791-6000 ext.4499,4496 or @rsu.clinica" },
+        {role: "user",
+        parts: "Can you tell me more about the clinic?"},
+        {role: "model",
+        parts: "Sure, the clinic provides medical treatment and care for the ill or injured international students. They house facilities like patient rooms, operating theaters, and diagnostic labs. Staff includes physicians, nurses, and allied health professionals. Hospitals are regulated to ensure quality and safety standards. They play a vital role in communities, offering services, education, and outreach for public health." },
+        {role: "user",
+        parts: "Can you tell me more about Health Plus?"},
+        {role: "model",
+        parts: "Sure, Health Plus provides the information regarding the RSU clinic to international students looking  to engage in healthier environment"},
+        {role: "user",
+        parts: "What service do you provide in Health Plus?"},
+        {role: "model",
+        parts: "Our service includes sharing RSU clinic information to international students as Rangsit Unviersity International College." },
+        {role: "user",
+        parts: "what is the recipes to bake a cake?"},
+        {role: "model",
+        parts: "Sorry, I can provide answer related only to our clinic and some other medical related quesions." },
+        {role: "user",
+        parts: "Do you know Tiffany?"},
+        {role: "model",
+        parts: "Sorry, I can provide answer related only to our Health Plus, clinic and some other medical related quesions." },
+        {role: "user",
+        parts: "Do you provide online consulting?"},
+        {role: "model",
+        parts: "Yes, there is telemedicine service. Please contact following to make appointment Tel.02-791-6000 ext.4499,4496 or @rsu.clinic" },
+        {role: "user",
+        parts: "Can I buy medicine at your clinic?"},
+        {role: "model",
+        parts: "Yes, the clinic sells medicine and you can order online. Please contact Tel.02-791-6000 ext.4499,4496 or @rsu.clinic" },
+        {role: "user",
+        parts: "Do you have this?"},
+        {role: "model",
+        parts: "I am sorry. Can you please rephrase your question again?" },
+        {role: "user",
+        parts: "Thank you for your information."},
+        {role: "model",
+        parts: "You are welcome! Thank you for reaching out." },
+        {role: "user",
+        parts: "I am sick."},
+        {role: "model",
+        parts: "I am sorry to hear, is there any sympton?" },
+        {role: "user",
+        parts: "I would like to make appointment."},
+        {role: "model",
+        parts: "I am sorry to inform you that we cannot assist you in making appointment. Please contact following to make appointment Tel.02-791-6000 ext.4499,4496 or @rsu.clinic" },
+        {role: "user",
+        parts: "I am getting headache"},
+        {role: "model",
+        parts: "I am sorry to hear. How about you get our online consulting? You can make appointment here." },
+        {role: "user",
+        parts: "I want to know more about the clinic insurance information for international students."},
+        {role: "model",
+        parts: "there is provided insurance informatio for international students. All foreign students are required to obtain health and travel medical coverage to cover themselves throughout the period of your travel and study in Thailand. If the students do not have existing health medical coverage that meets the requirements, the student may consult with the International Service Center for asssistance in purchasing coverage with the medical coverage providers in Thailand. Please have a general medical and dental checkup before coming to Thailand. If you have any chronic health problems or conditions, for example, asthma, diabetes, heart disease, eczema, gastrointestinal and muscle and joint problems, please carry a letter from your doctor explaining your condition and the treatment.Upon your arrival, please record your health medical coverage information online for central database to assist you in any emergency case. " },
+        {role: "user",
+        parts: "Tell me more about the clinic insurance policies"},
+        {role: "model",
+        parts: "Here is the link to medical coverage policies. https://www.rsuip.org/wp-content/uploads/2020/02/%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%84%E0%B8%B8%E0%B9%89%E0%B8%A1%E0%B8%84%E0%B8%A3%E0%B8%AD%E0%B8%87Muang-Thai-Insurance-English-version.pdf" },
+        {role: "user",
+        parts: "Tell me more about the clinic insurance for international students."},
+        {role: "model",
+        parts: "All foreign students are required to obtain health and travel medical coverage to cover themselves throughout the period of your travel and study in Thailand. If the students do not have existing health medical coverage that meets the requirements, the student may consult with the International Service Center for asssistance in purchasing coverage with the medical coverage providers in Thailand. Please have a general medical and dental checkup before coming to Thailand. If you have any chronic health problems or conditions, for example, asthma, diabetes, heart disease, eczema, gastrointestinal and muscle and joint problems, please carry a letter from your doctor explaining your condition and the treatment.Upon your arrival, please record your health medical coverage information online for central database to assist you in any emergency case." },
+        {role: "user",
+        parts: "How can I get the clinic insurance for international students?"},
+        {role: "model",
+        parts: "Insurance for international students claims can be processed. (1). Follow these instructions:,Complete and sign the medical claim form, indicating whether the doctor/Hospital has been paid. Once the following steps have been taken, please send claim form and attachments to your health medical coverage company. (2). Attach original itemized bills and/or receipts for all amounts being claimed. When reimbursement of an expense is approved, it will be made to the provider of the service unless the receipt of the bill is noted as having been paid by you. Payment will be made in U.S. dollars unless otherwise requested. (3). For foreign claims, provide a translation including all of the following elements: date of service, details of injury/illness, when injury/illness began, diagnosis, description of procedures performed on patient by doctor and approximate value (in U.S. $) of the currency that appears on the bill. (4). If payment is to be made to the provider of the service, the provider’s name, address, telephone number and taxpayer identification number (if the provider is in the U.S.) must be included on the bill receipt. If payment is to you, it will be mailed to your U.S. address unless otherwise requested.(5). Any question you may have, please do not hesitate to ask; Email : exchange@rsu.ac.th or pawana.s@rsu.ac.th"},
+        {role: "user",
+        parts: "what do I do to get the clinic insurance for international students?"},
+        {role: "model",
+        parts: "Insurance for international students claims can be processed. (1). Follow these instructions:,Complete and sign the medical claim form, indicating whether the doctor/Hospital has been paid. Once the following steps have been taken, please send claim form and attachments to your health medical coverage company. (2). Attach original itemized bills and/or receipts for all amounts being claimed. When reimbursement of an expense is approved, it will be made to the provider of the service unless the receipt of the bill is noted as having been paid by you. Payment will be made in U.S. dollars unless otherwise requested. (3). For foreign claims, provide a translation including all of the following elements: date of service, details of injury/illness, when injury/illness began, diagnosis, description of procedures performed on patient by doctor and approximate value (in U.S. $) of the currency that appears on the bill. (4). If payment is to be made to the provider of the service, the provider’s name, address, telephone number and taxpayer identification number (if the provider is in the U.S.) must be included on the bill receipt. If payment is to you, it will be mailed to your U.S. address unless otherwise requested.(5). Any question you may have, please do not hesitate to ask; Email : exchange@rsu.ac.th or pawana.s@rsu.ac.th"},
+        {role: "user",
+        parts: "what should I do to get the clinic insurance for international students?"},
+        {role: "model",
+        parts: "Insurance for international students claims can be processed. (1). Follow these instructions:,Complete and sign the medical claim form, indicating whether the doctor/Hospital has been paid. Once the following steps have been taken, please send claim form and attachments to your health medical coverage company. (2). Attach original itemized bills and/or receipts for all amounts being claimed. When reimbursement of an expense is approved, it will be made to the provider of the service unless the receipt of the bill is noted as having been paid by you. Payment will be made in U.S. dollars unless otherwise requested. (3). For foreign claims, provide a translation including all of the following elements: date of service, details of injury/illness, when injury/illness began, diagnosis, description of procedures performed on patient by doctor and approximate value (in U.S. $) of the currency that appears on the bill. (4). If payment is to be made to the provider of the service, the provider’s name, address, telephone number and taxpayer identification number (if the provider is in the U.S.) must be included on the bill receipt. If payment is to you, it will be mailed to your U.S. address unless otherwise requested.(5). Any question you may have, please do not hesitate to ask; Email : exchange@rsu.ac.th or pawana.s@rsu.ac.th"},
+      ],
+      generationConfig: { maxOutputTokens: 100 }
+    });
+  
+    const result = await chat.sendMessage(userInput);
+    const response = await result.response;
+    const text = response.text();
+    displayMessage(text, 'bot');
+  }
+
+  function displayMessage(message, role) {
+    const chatContainer = document.getElementById("chatContainer");
+    const messageElement = document.createElement("div");
+
+    // Add labels for "user" and "bot" messages
+    const label = document.createElement("span");
+    label.innerText = role === 'user' ? 'User: ' : 'Bot: ';
+    label.style.fontWeight = 'bold';
+    messageElement.appendChild(label); //dr m pr yin user ne bot label ty m pr tw bu.
+
+    // Set class based on role for styling
+    messageElement.className = `message ${role === 'user' ? 'user-message' : 'bot-message'}`; //dr m pr yin left right m pyit tw bu
+
+    // Add message content
+    const messageContent = document.createElement("span");
+    messageContent.innerText = message;
+
+    messageElement.appendChild(messageContent);
+
+    // Append message element to chat container
+    chatContainer.appendChild(messageElement);
+
+    // Scroll to the bottom of the chat container
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+
+    document.getElementById("userInput").value="";
+}  
+</script>
+</body>
+</html>

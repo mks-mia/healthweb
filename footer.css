@@ -1,0 +1,21 @@
+.footer{
+    left: 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    background-color: white;
+    opacity: 80%;
+    display: flex;
+    justify-content: space-between;
+    border-top:3 solid transparent;
+    box-shadow:  0 0 15px rgb(106, 102, 102);
+}
+.ph, .email, .line{
+    width: 33%;
+    padding-left: 5%;
+    padding-top: 5px;
+}
+.phimg, .emimg, .lineimg{
+    height: 24px; width: 24px;
+}

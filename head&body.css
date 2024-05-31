@@ -1,0 +1,138 @@
+body{
+	font-family: "Time New Roman";
+	padding-top: 100px;
+	background-color: white;
+	background-image: url(cbg.png);
+	background-size: cover;
+}
+
+.header{
+	position: fixed;
+	top:0px;
+	left: 0px;
+	right: 0px;
+	background: linear-gradient(45deg,rgb(238, 237, 237),white);
+	display: flex;
+	height: 118px;
+	justify-content: space-between;
+	border-bottom: 1px solid transparent;
+    box-shadow:  0 0 15px rgb(106, 102, 102);
+}
+
+.left{
+	flex: 1;
+	margin-top: 8px;
+	margin-left: 8px;
+	height: 80px;
+	width: 180px;
+	padding-left:20px;
+	max-width:200px;
+}
+.logo{
+	height: 100px; width: 220px;
+	margin-top: -8px;
+}
+
+.right{
+	flex: 1;
+	max-width: 400px;
+	margin-top: 8px;
+	height: 80px;
+	width: 280px;
+	display: flex;
+	padding-right: 10px;
+	align-items: center;
+	justify-content: space-between;
+}
+a{
+    text-decoration: none;
+	color: black;
+}
+.home{
+	padding-top: 6px;
+	padding-left: 8px;
+	padding-right: 8px;
+	height: 30px;
+	background-color: pink;
+	margin-top: 11px;
+	margin-left: 7%;
+	border-radius:18px;
+	border:0.5px solid white ;
+    box-shadow: 0px 10px 5px pink;
+}
+.ourvision,.howto, .getStarted{
+	padding-top: 6px;
+	padding-left: 8px;
+	padding-right: 8px;
+	height: 30px;
+	background-color: pink;
+	margin-top: 11px;
+	margin-left: 5px;
+	border-radius:18px;
+	width: 74px;
+	text-align: center;
+	border:0.5px solid white ;
+    box-shadow: 0px 10px 5px pink;
+}
+.getStarted{
+	padding-top: 6px;
+	padding-left: 8px;
+	padding-right: 8px;
+	height: 30px;
+	background-color: pink;
+	margin-top: 11px;
+	margin-left: 5px;
+	border-radius:18px;
+	width: 80px;
+}
+.home:hover, .getStarted:hover, .ourvision:hover, .howto:hover{
+	color: pink;
+	background-color: white;
+	border: 3px solid pink;
+}
+/*home:hover.appear, .getStarted:hover.appear, .aboutUs:hover.appear, .howto:hover.appear{
+	background-color: red;
+}*/
+.home:active, .getStarted:active, .ourvision:active, .howto:active{
+	background-color: lightgray;
+}
+
+
+.body{
+	margin-top: 15px;
+	display: flex;
+	align-items: center;
+}
+.body p{
+	font-size: 18px;
+}
+.bodyLeft{
+	margin-left: 5%;
+	margin-right: 10px;
+	width: 40%;
+	text-align: center;
+
+}
+.bodyRight{
+	margin-right: 5%;
+	width: 50%;
+}
+.homephoto{
+	width: 100%;
+}
+
+/*under is about us*/
+.aboutUsLeft, .howToText{
+	padding-top: 10px;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+.howToText a{
+	color: rgb(230, 125, 191);
+	font-weight: bold;
+	font-style: italic;
+	text-decoration: underline;
+}
+.aboutPage{
+	font-size: 20px;
+}

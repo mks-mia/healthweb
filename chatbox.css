@@ -1,0 +1,106 @@
+.chat-container {
+    padding: 10px ;
+    margin-top: 25px;
+    width: 90%;
+    height: 500px;
+    border: 1px solid darkgray;
+    overflow-y: scroll;
+    background-image: url(hp.png);
+    background-position: center;
+    border-radius: 35px;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    box-shadow: inset 1px 1px 9px gray;
+  }
+  .search{
+    display: flex;
+  }
+  .chatpage{
+    
+    width: 60%;
+    margin-left: 20px;
+    justify-content: center;
+  }
+  #userInput{
+    width: 70%;
+    height: 40px;
+    border-width: 0.5px;
+    border-color: #ccc;
+    border-radius: 25px;
+    margin-top: -3px;
+    margin-left: 2%;
+    padding-left: 15px;
+    box-shadow: inset 1px 1px 5px gray;
+  }
+  .message {
+    margin: 10px;
+    padding: 5px;
+    background-color: #f1f1f1;
+  }
+  .sendMessage{
+    margin-top: -3px;
+    margin-left: 2px;
+    height: 42px;
+    width: 15%;
+    background-color: rgb(255, 181, 193);
+    border-radius: 20px;
+    border:1px solid white ;
+    box-shadow: inset 1px 5px 9px white;
+  }
+  .sendMessage:hover{
+    background-color: white;
+    border: 1px solid pink;
+    box-shadow: inset 1px 1px 9px pink;
+  }
+  .sendMessage:active{
+    background-color: lightgray;
+  }
+  .user-message {
+    text-align: right;
+    background-color: rgb(228, 228, 228);
+    border-radius: 20px;
+    padding-right: 10px;
+  }
+  .bot-message {
+    text-align: left;
+    background-color: #ffe6ee ;
+    border-radius: 20px;
+    padding-left: 10px;
+  }
+/*this is added body*/
+  .chatbody{
+    display: flex;
+    justify-content: space-between;
+  }
+  h2{
+    text-align: center;
+    text-decoration: underline;
+  }
+  .guide{
+    margin-right: 20px;
+    width: 20%;
+    height: 490px;
+    padding-right: 20px;
+    border-radius: 30px;
+    border: 1px solid white;
+    box-shadow: inset 9px 9px 9px white;
+    margin-top: 28px;
+    font-size: 15px;
+  }
+  .contact{
+    width: 15%;
+    height: 280px;
+    border-radius: 30px;
+    border: 1px solid white;
+    box-shadow: inset 5px 9px 9px white;
+    margin-top: 29px;
+    font-size: 15px;
+    padding-left: 20px;
+    padding-right: 10px;
+    margin-right: 5px;
+  }
+  .contact img{
+    margin-right: 8px;
+    margin-top: 8px;
+  }
+  
