@@ -11,12 +11,12 @@ body{
 	top:0px;
 	left: 0px;
 	right: 0px;
-	background: linear-gradient(45deg,rgb(238, 237, 237),white);
+	background: linear-gradient(180deg,rgb(255, 232, 238),whitesmoke);
 	display: flex;
 	height: 118px;
 	justify-content: space-between;
-	border-bottom: 1px solid transparent;
-    box-shadow:  0 0 15px rgb(106, 102, 102);
+	/*border-bottom: 1px solid transparent;*/
+    box-shadow: inset 15px -10px 20px rgb(216, 215, 215);
 }
 
 .left{

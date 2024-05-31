@@ -16,8 +16,9 @@
     display: flex;
   }
   .chatpage{
-    
+
     width: 60%;
+    min-width: 300px;
     margin-left: 20px;
     justify-content: center;
   }
@@ -79,7 +80,8 @@
   .guide{
     margin-right: 20px;
     width: 20%;
-    height: 490px;
+    min-width: 222px;
+    height: 568px;
     padding-right: 20px;
     border-radius: 30px;
     border: 1px solid white;
@@ -89,6 +91,7 @@
   }
   .contact{
     width: 15%;
+    min-width:130px;
     height: 280px;
     border-radius: 30px;
     border: 1px solid white;
