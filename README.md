@@ -45,3 +45,8 @@ Developed by a 5-member team as part of a capstone simulation project. The full 
 
 https://mks-mia.github.io/healthweb/
 
+## Project Presentation File
+
+[Download the Presentation (PDF)](https://github.com/mks-mia/healthweb/blob/main/ICT301_final_project.pdf)
+Note: If you open the link on GitHub and see a message like "Unable to render code block", it's because GitHub cannot preview large or unsupported file types directly in the browser.
+Please click the “Download” button to have access to the pdf file.
